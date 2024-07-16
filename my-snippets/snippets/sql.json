@@ -1,0 +1,292 @@
+{
+    "HEADER PACKAGE":{
+    	"prefix": "HEADER",
+    	"body": [
+		"/**",
+		" * ${1:DESCRICAO Pacote}",
+		" *",
+		" * @author ${2:Pedro Picanco} ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		" *",
+		" * @version ${3:1}",
+		" *          $2 ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		" *           DM: ${4:2999865, 4021856} - ${5:DESCRICAO ALTERACAO VERSAO}",
+		" *",
+		" * @headcom",
+		" */"
+    	],
+    	"description": "HEADER PACKAGE"
+    },
+    "FUNCTION DESCRIPTION":{
+    	"prefix": "DESCFUNC",
+    	"body": [
+		"  /**",
+		"    * ${1:DESCRICAO FUNCAO}",
+		"    *",
+		"    * @author ${2:Pedro Picanco} ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		"    *",
+		"    * @param ${3:PARAMETRO} ${4:DESCRICAO PARAMETRO}",
+		"    * @return ${5:DESCRICAO RETORNO}",
+		"    *",
+		"    * @version $2 ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		"    *          DM: ${6:2999865, 4021856}",
+		"    */"
+    	],
+    	"description": "DESCRIPTION FOR FUNCTION"
+    },
+    "PROCEDURE DESCRIPTION":{
+    	"prefix": "DESCPROC",
+    	"body": [
+		"  /**",
+		"    * ${1:DESCRICAO PROCEDURE}",
+		"    *",
+		"    * @author ${2:Pedro Picanco} ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		"    *",
+		"    * @param ${3:PARAMETRO} ${4:DESCRICAO PARAMETRO}",
+		"    *",
+		"    * @version $2 ($CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR)",
+		"    *          DM: ${5:2999865, 4021856}",
+		"    */"
+    	],
+    	"description": "DESCRIPTION FOR PROCEDURE"
+    },
+    "PACKAGE..SPEC": {
+        "prefix": "PKG",
+        "body": [
+            "CREATE OR REPLACE PACKAGE ${1:NAME} IS",
+            "    $0",
+            "END $1;"
+        ],
+        "description": "PACKAGE SPEC"
+    },
+    "PACKAGE..BODY": {
+        "prefix": "PKG",
+        "body": [
+            "CREATE OR REPLACE PACKAGE BODY ${1:NAME} IS",
+            "    $0",
+            "END $1;"
+        ],
+        "description": "PACKAGE BODY"
+    },
+
+    "FUNC..SPEC": {
+        "prefix": "FUNC_SPEC",
+        "body": [
+            "FUNCTION ${1:NAME}(",
+            "    ${2:PARAM} ${3:PARAM_TYPE}${4:%TYPE})",
+            "RETURN ${5:RETURN_TYPE};"
+        ],
+        "description": "FUNCTION SPEC"
+    },
+    "FUNC": {
+        "prefix": "FUNC",
+        "body": [
+            "FUNCTION ${1:NAME}(",
+            "    ${2:PARAM} ${3:PARAM_TYPE}${4:%TYPE})",
+            "RETURN ${5:RETURN_TYPE}${6:%TYPE}",
+            "IS",
+            "    ${7:wl_ret} $5$6;",
+            "BEGIN",
+            "    $0",
+            "    RETURN $7;",
+            "",
+            "END $1;"
+        ],
+        "description": "FUNCTION"
+    },
+
+    "PROC..SPEC": {
+        "prefix": "PROC_SPEC",
+        "body": [
+            "PROCEDURE ${1:NAME}(",
+            "    ${2:PARAM} ${3:PARAM_TYPE}${4:%TYPE});"
+        ],
+        "description": "PROCEDURE SPEC"
+    },
+    "PROC": {
+        "prefix": "PROC",
+        "body": [
+            "PROCEDURE ${1:NAME}(",
+            "    ${2:PARAM} ${3:PARAM_TYPE}${4:%TYPE})",
+            "IS",
+            "BEGIN",
+            "    $0",
+            "END $1;"
+        ],
+        "description": "PROCEDURE"
+    },
+
+    "BEGIN..END": {
+        "prefix": "BEGIN",
+        "body": [
+            "BEGIN",
+            "    $0",
+            "END;"
+        ],
+        "description": "BEGIN..END"
+    },
+
+    "IF..END": {
+        "prefix": "IFTHEN",
+        "body": [
+            "IF ${1:CONDITION} THEN",
+            "    $0",
+            "END IF;"
+        ],
+        "description": "IF..END"
+    },
+    "IF..ELSE..END": {
+        "prefix": "IFELSE",
+        "body": [
+            "IF ${1:CONDITION} THEN",
+            "    $2",
+            "ELSE",
+            "    $3",
+            "END IF;"
+        ],
+        "description": "IF..ELSE..END"
+    },
+    "ELSIF..": {
+        "prefix": "ELSIF",
+        "body": [
+            "ELSIF ${1:CONDITION} THEN",
+            "    $0"
+        ],
+        "description": "ELSIF.."
+    },
+
+    "CASE..WHEN..END": {
+        "prefix": "CASE",
+        "body": [
+            "CASE $1",
+            "    WHEN ${2:CONDITION} THEN $3",
+            "    ELSE $4",
+            "END;"
+        ],
+        "description": "CASE..WHEN..END"
+    },
+    "WHEN..THEN": {
+        "prefix": "WHEN",
+        "body": [
+            "WHEN ${1:CONDITION} THEN $2"
+        ],
+        "description": "WHEN..THEN"
+    },
+
+    "LOOP..END": {
+        "prefix": "LOOP",
+        "body": [
+            "LOOP",
+            "    $0",
+            "END LOOP"
+        ],
+        "description": "LOOP..END"
+    },
+
+    "FOR..IN": {
+        "prefix": "FOR",
+        "body": [
+            "FOR $1 IN $2 LOOP",
+            "    $0",
+            "END LOOP"
+        ],
+        "description": "FOR..IN"
+    },
+
+    "FOR..IN..COLLECTION": {
+        "prefix": "FOR",
+        "body": [
+            "FOR I IN 1..${1:COLLECTION}.COUNT LOOP",
+            "  $0",
+            "END LOOP"
+        ],
+        "description": "FOR..IN..COLLECTION"
+    },
+
+    "EXCEPTION_NO_DATA": {
+        "prefix": "EXCEPTION_NO_DATA",
+        "body": [
+            "EXCEPTION",
+            "    WHEN NO_DATA_FOUND THEN",
+            "        $1;"
+        ],
+        "description": "EXCEPTION NO_DATA_FOUND"
+    },
+    "EXCEPTION_TOO_MANY": {
+        "prefix": "EXCEPTION_TOO_MANY",
+        "body": [
+            "EXCEPTION",
+            "    WHEN TOO_MANY_ROWS THEN",
+            "        $1;"
+        ],
+        "description": "EXCEPTION TOO_MANY_ROWS"
+    },
+    "EXCEPTION_OTHERS": {
+        "prefix": "EXCEPTION",
+        "body": [
+            "EXCEPTION",
+            "    WHEN ${1:OTHERS} THEN",
+            "        ${2:NULL};"
+        ],
+        "description": "EXCEPTION OTHERS"
+    },
+
+    "RAISE_APPLICATION_ERROR": {
+        "prefix": "RAISE",
+        "body": [
+            "RAISE_APPLICATION_ERROR(${1:-20000}, '${2:MESSAGE}');"
+        ],
+        "description": "RAISE APPLICATION ERROR"
+    },
+    "DBMS_OUTPUT.PUT_LINE": {
+        "prefix": "OUTPUT",
+        "body": [
+            "DBMS_OUTPUT.PUT_LINE('${1:MESSAGE}');"
+        ],
+        "description": "DBMS_OUTPUT.PUT_LINE"
+    },
+
+    "SELECT": {
+        "prefix": "SELECT",
+        "body": [
+            "SELECT ${1:FIELD}",
+            "  ${2:INTO ${3:VARIABLE}}",
+            "  FROM ${4:TABLE}",
+            " WHERE ${5:CONDITION}"
+        ],
+        "description": "SELECT"
+    },
+    "INSERT": {
+        "prefix": "INSERT",
+        "body": [
+            "INSERT INTO ${1:TABLE} ${2:(${3:COLUMN})}",
+            "VALUES ${4:(${5:VALUES})}"
+        ],
+        "description": "INSERT"
+    },
+    "UPDATE": {
+        "prefix": "UPDATE",
+        "body": [
+            "UPDATE ${1:TABLE}",
+            "   SET ${2:FIELD}=${3:VALUE}",
+            " WHERE ${4:CONDITION}"
+        ],
+        "description": "UPDATE"
+    },
+    "DELETE": {
+        "prefix": "DELETE",
+        "body": [
+            "DELETE FROM ${1:TABLE}",
+            " WHERE ${2:CONDITION}"
+        ],
+        "description": "DELETE"
+    },
+     "PARAM_OBRIG": {
+        "prefix": "PARAM_OBRIG",
+        "body": [
+            "IF $1 IS NULL THEN",
+            "    RAISE_APPLICATION_ERROR(pk_sneg_estrutura_dados.wc_cd_exc_par_invalido, 'PARAMETRO $1 INVALIDO');",
+            "END IF;"
+        ],
+        "description": "PARAMETRO OBRIGATORIO EXCECAO"
+    }
+}
